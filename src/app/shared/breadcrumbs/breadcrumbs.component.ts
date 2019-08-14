@@ -30,6 +30,9 @@ export class BreadcrumbsComponent implements OnInit {
   ngOnInit() {
   }
 
+  // ==============================================================
+  //       Obtener data para titulo
+  // ==============================================================
   getDataRoute() {
     return this.router.events.pipe(
       filter(evento => evento instanceof ActivationEnd),

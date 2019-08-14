@@ -6,6 +6,7 @@ import { DOCUMENT } from '@angular/common';
 })
 export class SettingsService {
 
+  // Ajustes por defecto
   ajustes: Ajustes = {
     temaUrl: 'assets/css/colors/default-dark.css',
     tema: 'default-dark'
@@ -15,10 +16,16 @@ export class SettingsService {
     this.cargarAjustes();
   }
 
+  // ==============================================================
+  //       Guardar ajustes en localStorage
+  // ==============================================================
   guardarAjustes() {
     localStorage.setItem('ajustes', JSON.stringify(this.ajustes));
   }
 
+  // ==============================================================
+  //       Obtener ajustes de localStorage
+  // ==============================================================
   cargarAjustes() {
     if (localStorage.getItem('ajustes')) {
       this.ajustes = JSON.parse(localStorage.getItem('ajustes'));
@@ -27,8 +34,10 @@ export class SettingsService {
     }
   }
 
+  // ==============================================================
+  //       Modificar ajustes de tema
+  // ==============================================================
   aplicarTema(tema: string) {
-
     const url = `assets/css/colors/${tema}.css`;
     this._document.getElementById('tema').setAttribute('href', url);
 
@@ -40,6 +49,9 @@ export class SettingsService {
 
 }
 
+// ==============================================================
+//       Intyerface de ajustes
+// ==============================================================
 interface Ajustes {
   temaUrl: string;
   tema: string;

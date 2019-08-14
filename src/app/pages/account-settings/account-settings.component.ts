@@ -1,3 +1,6 @@
+// ==============================================================
+//       Pagina de configuración de color
+// ==============================================================
 import { Component, OnInit } from '@angular/core';
 
 import { SettingsService } from '../../services/service.index';
@@ -15,6 +18,9 @@ export class AccountSettingsComponent implements OnInit {
     this.colocarCheck();
   }
 
+  // ==============================================================
+  //       Seleccionar color evento click
+  // ==============================================================
   cambiarColor(tema: string, link: any) {
 
     this.aplicarCheck(link);
@@ -22,8 +28,10 @@ export class AccountSettingsComponent implements OnInit {
     this._ajustes.aplicarTema(tema);
   }
 
+  // ==============================================================
+  //       Poner el check en color seleccionado
+  // ==============================================================
   aplicarCheck(link: any) {
-
     const selectores: any = document.getElementsByClassName('selector');
     for (const ref of selectores) {
       ref.classList.remove('working');
@@ -32,8 +40,10 @@ export class AccountSettingsComponent implements OnInit {
     link.classList.add('working');
   }
 
+  // ==============================================================
+  //       Poner check previamente seleccionado
+  // ==============================================================
   colocarCheck() {
-
     const selectores: any = document.getElementsByClassName('selector');
 
     const tema = this._ajustes.ajustes.tema;

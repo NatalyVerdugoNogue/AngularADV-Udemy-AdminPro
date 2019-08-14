@@ -1,3 +1,6 @@
+// ==============================================================
+//       Estudio de promesas
+// ==============================================================
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -38,9 +41,8 @@ export class PromesasComponent implements OnInit {
     //   );
 
     // ==============================================================
-    // Promesa desde función
+    // Promesa desde función en constructor
     // ==============================================================
-
     this.contarTres().then(() =>
       console.log('termino'))
       .catch(error => console.error('Error en promesa', error)
@@ -51,6 +53,9 @@ export class PromesasComponent implements OnInit {
   ngOnInit() {
   }
 
+  // ==============================================================
+  //       Función promesa
+  // ==============================================================
   contarTres(): Promise<boolean> {
     return new Promise((resolve, reject) => {
 
@@ -61,7 +66,6 @@ export class PromesasComponent implements OnInit {
         contador += 1;
         console.log('contador', contador);
 
-
         if (contador === 3) {
           resolve(true);
           clearInterval(intervalo);
@@ -69,7 +73,6 @@ export class PromesasComponent implements OnInit {
 
       }, 1000);
     });
-
   }
 
 }

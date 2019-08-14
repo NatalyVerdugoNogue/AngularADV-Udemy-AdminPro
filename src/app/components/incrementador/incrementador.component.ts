@@ -1,3 +1,7 @@
+// ==============================================================
+//       Prueba de comunicacion de componentes, barra de progreso
+// ==============================================================
+
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
@@ -37,9 +41,12 @@ export class IncrementadorComponent implements OnInit {
     this.cambioValor.emit(this.progreso);
 
     this.txtProgress.nativeElement.focus();
-
   }
 
+
+  // ==============================================================
+  //       cambia valor progreso de 0-100 %
+  // ==============================================================
   cambiarValor(valor: number) {
 
     if (this.progreso >= 100 && valor > 0) {
